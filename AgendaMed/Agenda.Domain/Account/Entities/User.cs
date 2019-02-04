@@ -1,4 +1,5 @@
 ﻿using Agenda.SharedKernel.Entities;
+using FluentValidator;
 
 namespace Agenda.Domain.Account.Entities
 {
@@ -10,17 +11,16 @@ namespace Agenda.Domain.Account.Entities
             Password = password;
             Name = name;
             Active = true;
-            
-            if(string.IsNullOrWhiteSpace(username))
-                AddNotification("Username", "O username deve ser informado.");
-            if (string.IsNullOrWhiteSpace(password))
-                AddNotification("Password", "A senha deve ser informada.");
-            if (username.Length > 20)
-                AddNotification("Username", "O username deve ter no máximo 20 caracteres.");
-            if (password.Length < 4)
-                AddNotification("Password", "A senha deve ter no minimo 4 caracteres.");
-            if (name.Length > 100)
-                AddNotification("Name", "O nome do usuário ter no máximo 100 caracteres.");
+
+            new ValidationContract<User>(this)
+                .IsRequired(x => x.Username, "O nome do usuario deve ser informado.")
+                .IsRequired(x => x.Password, "A senha deve ser informada.")
+
+                .HasMinLenght(x => x.Password, 4, "A senha deve ter no minimo 4 caracteres.")
+
+                .HasMaxLenght(x => x.Username, 20, "O nome de usuário deve ter no máximo 20 caracteres.")
+                .HasMaxLenght(x => x.Password, 20, "A senha do usuário deve ter no máximo 20 caracteres.")
+                .HasMaxLenght(x => x.Name, 100, "O nome do usuário deve ter no máximo 100 caracteres.");
         }
 
         public string Name { get; private set; }
@@ -31,6 +31,9 @@ namespace Agenda.Domain.Account.Entities
         public void Update(string name)
         {
             Name = name;
+
+            new ValidationContract<User>(this)
+                .HasMaxLenght(x => x.Name, 100, "O nome do usuário deve ter no máximo 100 caracteres.");
         }
 
         public void Deactivate()
