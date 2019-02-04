@@ -8,8 +8,9 @@ namespace Agenda.Domain.Management.Repositories
     {
         void Save(Hospital hospital);
         void Update(Hospital hospital);
+        void UpdateSpecialty(Hospital hospital);
         void Delete(Guid id);
         List<Hospital> Hospitals();
-        Hospital GetHospitalById(Guid id);
+        Hospital GetById(Guid id);
     }
 }

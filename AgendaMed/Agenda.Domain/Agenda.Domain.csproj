@@ -57,6 +57,8 @@
     <Compile Include="Management\Repositories\IHospitalRepository.cs" />
     <Compile Include="Management\Repositories\ISpecialtyRepository.cs" />
     <Compile Include="Management\Services\DoctorServices.cs" />
+    <Compile Include="Management\Services\HospitalServices.cs" />
+    <Compile Include="Management\Services\SpecialtyServices.cs" />
     <Compile Include="Management\ValueObjects\Document.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
