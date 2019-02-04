@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Account\Entities\User.cs" />
     <Compile Include="Account\Repositories\IUserRepository.cs" />
+    <Compile Include="Account\Services\UserServices.cs" />
     <Compile Include="BookService\Entities\Book.cs" />
     <Compile Include="BookService\Enums\EStatus.cs" />
     <Compile Include="BookService\Repositories\IBookRepository.cs" />
