@@ -41,7 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Entities\User.cs" />
+    <Compile Include="Account\Repositories\IUserRepository.cs" />
     <Compile Include="BookService\Entities\Book.cs" />
+    <Compile Include="BookService\Enums\EStatus.cs" />
+    <Compile Include="BookService\Repositories\IBookRepository.cs" />
     <Compile Include="Management\Entities\Doctor.cs" />
     <Compile Include="Management\Entities\Hospital.cs" />
     <Compile Include="Management\Entities\Specialty.cs" />

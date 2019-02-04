@@ -1,4 +1,6 @@
-﻿using Agenda.Domain.Management.Entities;
+﻿using Agenda.Domain.Account.Entities;
+using Agenda.Domain.BookService.Enums;
+using Agenda.Domain.Management.Entities;
 using Agenda.SharedKernel.Entities;
 using System;
 
@@ -6,32 +8,30 @@ namespace Agenda.Domain.BookService.Entities
 {
     public class Book : Entity
     {
-        public Book(string user, Doctor doctor, DateTime bookTime, Exam exam)
+        public Book(User user, Doctor doctor, DateTime bookTime)
         {
             User = user;
             Doctor = doctor;
             BookTime = bookTime;
-            Exam = exam;
-            Status = "Reservado";
+            Status = EStatus.Reserved;
         }
 
-        public string User { get; private set; }
+        public User User { get; private set; }
         public Doctor Doctor { get; private set; }
         public DateTime BookTime { get; private set; }
-        public Exam Exam { get; private set; }
-        public string Status { get; private set; }
+        public EStatus Status { get; private set; }
 
         public void Cancel()
         {
-            Status = "Cancelado";
+            Status = EStatus.Canceled;
         }
 
         public void Finish()
         {
-            Status = "Finalizado";
+            Status = EStatus.Finished;
         }
 
-        public void Update(string user, Doctor doctor, DateTime bookTime, Exam exam)
+        public void Update(DateTime bookTime)
         {
             BookTime = bookTime;
         }
