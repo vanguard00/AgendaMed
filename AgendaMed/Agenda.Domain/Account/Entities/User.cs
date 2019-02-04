@@ -1,6 +1,5 @@
 ﻿using Agenda.SharedKernel.Entities;
 using FluentValidator;
-using System.Text;
 
 namespace Agenda.Domain.Account.Entities
 {
