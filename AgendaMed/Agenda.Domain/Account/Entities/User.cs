@@ -1,5 +1,6 @@
 ﻿using Agenda.SharedKernel.Entities;
 using FluentValidator;
+using System.Text;
 
 namespace Agenda.Domain.Account.Entities
 {
@@ -21,6 +22,8 @@ namespace Agenda.Domain.Account.Entities
                 .HasMaxLenght(x => x.Username, 20, "O nome de usuário deve ter no máximo 20 caracteres.")
                 .HasMaxLenght(x => x.Password, 20, "A senha do usuário deve ter no máximo 20 caracteres.")
                 .HasMaxLenght(x => x.Name, 100, "O nome do usuário deve ter no máximo 100 caracteres.");
+
+            EncryptPassword(Password);
         }
 
         public string Name { get; private set; }
@@ -44,6 +47,20 @@ namespace Agenda.Domain.Account.Entities
         public void Activate()
         {
             Active = true;
+        }
+
+        public bool Authenticate(string username, string password)
+        {
+            var passwordHash = EncryptPassword(password);
+            if (Username.Equals(username) && Password.Equals(passwordHash))
+                return true;
+            return false;
+        }
+
+        private string EncryptPassword(string pass)
+        {
+            //Criptografia de senha
+            return pass;
         }
     }
 }
