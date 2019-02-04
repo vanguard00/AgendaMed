@@ -10,9 +10,9 @@ namespace Agenda.Domain.BookService.Repositories
         void Update(Book book);
         void Cancel(Book book);
         void Finish(Book book);
+        Book GetById(Guid id);
         List<Book> Books();
         List<Book> GetBooksByDate(DateTime date);
-        List<Book> GetById(Guid id);
         List<Book> GetBooksByDoctor(Guid id);
         List<Book> GetBooksByUser(Guid id);
     }

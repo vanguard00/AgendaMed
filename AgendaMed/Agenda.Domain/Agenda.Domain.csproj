@@ -50,6 +50,7 @@
     <Compile Include="BookService\Entities\Book.cs" />
     <Compile Include="BookService\Enums\EStatus.cs" />
     <Compile Include="BookService\Repositories\IBookRepository.cs" />
+    <Compile Include="BookService\Services\BookServices.cs" />
     <Compile Include="Management\Entities\Doctor.cs" />
     <Compile Include="Management\Entities\Hospital.cs" />
     <Compile Include="Management\Entities\Specialty.cs" />
