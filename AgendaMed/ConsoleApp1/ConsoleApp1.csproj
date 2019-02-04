@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AE0F3EBC-25A7-4979-9F14-15E67CE7C3F5}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Agenda.Domain</RootNamespace>
-    <AssemblyName>Agenda.Domain</AssemblyName>
+    <ProjectGuid>{CCDF3FB5-1E17-4B3B-8613-A95C4179438C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsoleApp1</RootNamespace>
+    <AssemblyName>ConsoleApp1</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,22 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookService\Entities\Book.cs" />
-    <Compile Include="Management\Entities\Doctor.cs" />
-    <Compile Include="Management\Entities\Hospital.cs" />
-    <Compile Include="Management\Entities\Specialty.cs" />
-    <Compile Include="Management\Repositories\IDoctorRepository.cs" />
-    <Compile Include="Management\Repositories\IHospitalRepository.cs" />
-    <Compile Include="Management\Repositories\ISpecialtyRepository.cs" />
-    <Compile Include="Management\ValueObjects\Document.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Agenda.SharedKernel\Agenda.SharedKernel.csproj">
-      <Project>{320DED7B-F5DA-4393-9EA3-8E94EC563B34}</Project>
-      <Name>Agenda.SharedKernel</Name>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Agenda.Domain\Agenda.Domain.csproj">
+      <Project>{AE0F3EBC-25A7-4979-9F14-15E67CE7C3F5}</Project>
+      <Name>Agenda.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
