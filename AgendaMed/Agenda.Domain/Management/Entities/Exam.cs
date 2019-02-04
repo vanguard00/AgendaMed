@@ -2,9 +2,9 @@
 
 namespace Agenda.Domain.Management.Entities
 {
-    public class Exams : Entity
+    public class Exam : Entity
     {
-        public Exams(string name, decimal price, Specialty specialty)
+        public Exam(string name, decimal price, Specialty specialty)
         {
             Name = name;
             Price = price;

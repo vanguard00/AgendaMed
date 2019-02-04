@@ -41,9 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookService\Entities\Book.cs" />
     <Compile Include="Management\Entities\Area.cs" />
     <Compile Include="Management\Entities\Doctor.cs" />
-    <Compile Include="Management\Entities\Exams.cs" />
+    <Compile Include="Management\Entities\Exam.cs" />
     <Compile Include="Management\Entities\Hospital.cs" />
     <Compile Include="Management\Entities\Specialty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,8 +55,6 @@
       <Name>Agenda.SharedKernel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Book\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

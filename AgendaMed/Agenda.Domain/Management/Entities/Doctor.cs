@@ -1,20 +1,23 @@
-﻿using System;
+﻿using Agenda.SharedKernel.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace Agenda.Domain.Management.Entities
 {
-    public class Doctor
+    public class Doctor : Entity
     {
-        public Doctor(string name, string crm, DateTime dateOfBirth, List<Specialty> specialties)
+        public Doctor(string name, string crm, DateTime dateOfBirth, List<Specialty> specialties, string cpf)
         {
             Name = name;
             CRM = crm;
+            CPF = cpf;
             DateOfBirth = dateOfBirth;
             Specialties = specialties;
         }
 
         public string Name { get; private set; }
         public string CRM { get; private set; }
+        public string CPF { get; private set; }
         public DateTime DateOfBirth { get; private set; }
         public List<Specialty> Specialties { get; private set; }
         
