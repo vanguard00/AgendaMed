@@ -16,7 +16,7 @@ namespace Agenda.Domain.Account.Services
         public void Create(string username, string password, string name)
         {
             User user = new User(username, password, name);
-            if (!user.IsValid)
+            if (!user.IsValid())
                 return;
             _userRepository.Save(user);
         }
@@ -25,7 +25,7 @@ namespace Agenda.Domain.Account.Services
         {
             User user = _userRepository.GetById(id);
             user.Update(name);
-            if (!user.IsValid)
+            if (!user.IsValid())
                 return;
             _userRepository.Update(user);
         }
