@@ -1,4 +1,5 @@
 ﻿using Agenda.SharedKernel.Entities;
+using FluentValidator;
 using System.Collections.Generic;
 
 namespace Agenda.Domain.Management.Entities
@@ -9,6 +10,11 @@ namespace Agenda.Domain.Management.Entities
         {
             Name = name;
             Specialties = specialties;
+
+            new ValidationContract<Hospital>(this)
+                .IsRequired(x => x.Name, "O nome do hospital deve ser informado.")
+
+                .HasMaxLenght(x => x.Name, 100, "O nome do hospital deve ter no máximo 100 caracteres.");
         }
 
         public string Name { get; private set; }
@@ -18,6 +24,11 @@ namespace Agenda.Domain.Management.Entities
         {
             Name = name;
             Specialties = specialties;
+
+            new ValidationContract<Hospital>(this)
+                .IsRequired(x => x.Name, "O nome do hospital deve ser informado.")
+
+                .HasMaxLenght(x => x.Name, 100, "O nome do hospital deve ter no máximo 100 caracteres.");
         }
     }
 }

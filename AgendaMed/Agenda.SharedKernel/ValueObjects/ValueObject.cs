@@ -1,6 +1,8 @@
-﻿namespace Agenda.SharedKernel.ValueObjects
+﻿using FluentValidator;
+
+namespace Agenda.SharedKernel.ValueObjects
 {
-    public class ValueObject
+    public class ValueObject : Notifiable
     {
     }
 }
