@@ -2,9 +2,9 @@
 
 namespace Agenda.Domain.Management.Entities
 {
-    public class Specialties : Entity
+    public class Specialty : Entity
     {
-        public Specialties(string name)
+        public Specialty(string name)
         {
             Name = name;
         }
