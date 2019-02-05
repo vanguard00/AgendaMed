@@ -1,72 +1,83 @@
 ﻿using Agenda.Domain.Account.Entities;
 using Agenda.Domain.Account.Repositories;
+using Agenda.Domain.BookService.Commands.Inputs;
+using Agenda.Domain.BookService.Commands.Results;
 using Agenda.Domain.BookService.Entities;
 using Agenda.Domain.BookService.Repositories;
 using Agenda.Domain.Management.Entities;
 using Agenda.Domain.Management.Repositories;
+using Agenda.SharedKernel.Commands;
 using FluentValidator;
 using System;
 using System.Collections.Generic;
 
-namespace Agenda.Domain.BookService.Services
+namespace Agenda.Domain.BookService.Commands.Handlers
 {
-    public class BookServices : Notifiable
+    public class BookCommandHandler : Notifiable,
+        ICommandHandler<CreateBookCommand>,
+        ICommandHandler<UpdateBookCommand>,
+        ICommandHandler<CancelBookCommand>,
+        ICommandHandler<FinishBookCommand>
     {
         private readonly IBookRepository _bookRepository;
         private readonly IDoctorRepository _doctorRepository;
         private readonly IUserRepository _userRepository;
-        public BookServices(IBookRepository bookRepository, IDoctorRepository doctorRepository, IUserRepository userRepository)
+        public BookCommandHandler(IBookRepository bookRepository, IDoctorRepository doctorRepository, IUserRepository userRepository)
         {
             _bookRepository = bookRepository;
             _doctorRepository = doctorRepository;
             _userRepository = userRepository;
         }
 
-        public void Create(Guid userId, Guid doctorId, DateTime bookTime)
+        public ICommandResult Handler(CreateBookCommand command)
         {
-            User user = _userRepository.GetById(userId);
-            Doctor doctor = _doctorRepository.GetById(doctorId);
-            Book book = new Book(user, doctor, bookTime);
+            User user = _userRepository.GetById(command.UserId);
+            Doctor doctor = _doctorRepository.GetById(command.DoctorId);
+            Book book = new Book(user, doctor, command.BookTime);
             AddNotifications(book.Notifications);
             if (IsValid())
-                return;
+                return null;
             _bookRepository.Save(book);
+            return new StandardBookCommandResult(book.Id, DateTime.Now);
         }
 
-        public void Update(Guid userId, Guid bookId, DateTime bookTime)
+        public ICommandResult Handler(UpdateBookCommand command)
         {
-            Book book = _bookRepository.GetById(bookId);
-            if (!(book.User.Id == userId))
+            Book book = _bookRepository.GetById(command.BookId);
+            if (!(book.User.Id == command.UserId))
                 AddNotification("User", "O usuário não tem permissão para alterar essa reserva.");
-            book.Update(bookTime);
+            book.Update(command.BookTime);
             AddNotifications(book.Notifications);
             if (IsValid())
-                return;
+                return null;
             _bookRepository.Update(book);
+            return new StandardBookCommandResult(book.Id, DateTime.Now);
         }
 
-        public void Cancel(Guid userId, Guid bookId)
+        public ICommandResult Handler(CancelBookCommand command)
         {
-            Book book = _bookRepository.GetById(bookId);
-            if (!(book.User.Id == userId))
+            Book book = _bookRepository.GetById(command.BookId);
+            if (!(book.User.Id == command.UserId))
                 AddNotification("User", "O usuário não tem permissão para alterar essa reserva.");
             book.Cancel();
             AddNotifications(book.Notifications);
             if (IsValid())
-                return;
+                return null;
             _bookRepository.Cancel(book);
+            return new StandardBookCommandResult();
         }
 
-        public void Finish(Guid userId, Guid bookId)
+        public ICommandResult Handler(FinishBookCommand command)
         {
-            Book book = _bookRepository.GetById(bookId);
-            if (!(book.User.Id == userId))
+            Book book = _bookRepository.GetById(command.BookId);
+            if (!(book.User.Id == command.UserId))
                 AddNotification("User", "O usuário não tem permissão para alterar essa reserva.");
             book.Finish();
             AddNotifications(book.Notifications);
             if (IsValid())
-                return;
+                return null;
             _bookRepository.Finish(book);
+            return new StandardBookCommandResult();
         }
 
         public Book GetById(Guid bookId)

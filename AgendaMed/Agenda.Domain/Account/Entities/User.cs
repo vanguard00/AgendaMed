@@ -1,5 +1,6 @@
 ﻿using Agenda.SharedKernel.Entities;
 using FluentValidator;
+using System.Text;
 
 namespace Agenda.Domain.Account.Entities
 {
@@ -58,8 +59,14 @@ namespace Agenda.Domain.Account.Entities
 
         private string EncryptPassword(string pass)
         {
-            //Criptografia de senha
-            return pass;
+            if (string.IsNullOrEmpty(pass)) return "";
+            var password = (pass += "8b11d678-9af7-4f3a-a28a-4de7e1826e20");
+            var md5 = System.Security.Cryptography.MD5.Create();
+            var data = md5.ComputeHash(Encoding.Default.GetBytes(password));
+            var sbString = new StringBuilder();
+            foreach (var t in data)
+                sbString.Append(t.ToString("x2"));
+            return sbString.ToString();
         }
     }
 }

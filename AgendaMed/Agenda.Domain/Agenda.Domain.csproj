@@ -44,22 +44,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Commands\Handlers\UserCommandHandler.cs" />
+    <Compile Include="Account\Commands\Inputs\CreateUserCommand.cs" />
+    <Compile Include="Account\Commands\Inputs\UpdateUserCommand.cs" />
+    <Compile Include="Account\Commands\Inputs\UpdateUserStatusCommand.cs" />
+    <Compile Include="Account\Commands\Results\StandardUserCommandResult.cs" />
     <Compile Include="Account\Entities\User.cs" />
     <Compile Include="Account\Repositories\IUserRepository.cs" />
-    <Compile Include="Account\Services\UserServices.cs" />
+    <Compile Include="BookService\Commands\Handlers\BookCommandHandler.cs" />
+    <Compile Include="BookService\Commands\Inputs\CancelBookCommand.cs" />
+    <Compile Include="BookService\Commands\Inputs\CreateBookCommand.cs" />
+    <Compile Include="BookService\Commands\Inputs\FinishBookCommand.cs" />
+    <Compile Include="BookService\Commands\Inputs\UpdateBookCommand.cs" />
+    <Compile Include="BookService\Commands\Results\StandardBookCommandResult.cs" />
     <Compile Include="BookService\Entities\Book.cs" />
     <Compile Include="BookService\Enums\EStatus.cs" />
     <Compile Include="BookService\Repositories\IBookRepository.cs" />
-    <Compile Include="BookService\Services\BookServices.cs" />
+    <Compile Include="Management\Commands\Handlers\DoctorCommandHandler.cs" />
+    <Compile Include="Management\Commands\Handlers\HospitalCommandHandler.cs" />
+    <Compile Include="Management\Commands\Handlers\SpecialtyCommandHandler.cs" />
+    <Compile Include="Management\Commands\Inputs\Doctor\CreateDoctorCommand.cs" />
+    <Compile Include="Management\Commands\Inputs\Doctor\DeleteDoctorCommand.cs" />
+    <Compile Include="Management\Commands\Inputs\Doctor\UpdateDoctorCommand.cs" />
+    <Compile Include="Management\Commands\Inputs\Hospital\AddSpecialtyCommand.cs" />
+    <Compile Include="Management\Commands\Inputs\Hospital\DeleteHospitalCommand.cs" />
+    <Compile Include="Management\Commands\Inputs\Hospital\RemoveSpecialtyCommand.cs" />
+    <Compile Include="Management\Commands\Inputs\Hospital\UpdateHospitalCommand.cs" />
+    <Compile Include="Management\Commands\Inputs\Hospital\CreateHospitalCommand.cs" />
+    <Compile Include="Management\Commands\Inputs\SpecialtyInputs\CreateSpecialtyCommand.cs" />
+    <Compile Include="Management\Commands\Inputs\SpecialtyInputs\DeleteSpecialtyCommand.cs" />
+    <Compile Include="Management\Commands\Inputs\SpecialtyInputs\UpdateSpecialtyCommand.cs" />
+    <Compile Include="Management\Commands\Results\Doctor\DeleteDoctorCommandResult.cs" />
+    <Compile Include="Management\Commands\Results\Doctor\StandardDoctorCommandResult.cs" />
+    <Compile Include="Management\Commands\Results\Hospital\DeleteHospitalCommandResult.cs" />
+    <Compile Include="Management\Commands\Results\Hospital\StandardHospitalCommandResult.cs" />
+    <Compile Include="Management\Commands\Results\Specialty\DeleteSpecialtyCommandResult.cs" />
+    <Compile Include="Management\Commands\Results\Specialty\StandardSpecialtyCommandResult.cs" />
     <Compile Include="Management\Entities\Doctor.cs" />
     <Compile Include="Management\Entities\Hospital.cs" />
     <Compile Include="Management\Entities\Specialty.cs" />
     <Compile Include="Management\Repositories\IDoctorRepository.cs" />
     <Compile Include="Management\Repositories\IHospitalRepository.cs" />
     <Compile Include="Management\Repositories\ISpecialtyRepository.cs" />
-    <Compile Include="Management\Services\DoctorServices.cs" />
-    <Compile Include="Management\Services\HospitalServices.cs" />
-    <Compile Include="Management\Services\SpecialtyServices.cs" />
     <Compile Include="Management\ValueObjects\Document.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,16 +98,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Account\Commands\Handlers\" />
-    <Folder Include="Account\Commands\Inputs\" />
-    <Folder Include="Account\Commands\Results\" />
-    <Folder Include="BookService\Commands\Handlers\" />
-    <Folder Include="BookService\Commands\Inputs\" />
-    <Folder Include="BookService\Commands\Results\" />
-    <Folder Include="Management\Commands\Handlers\" />
-    <Folder Include="Management\Commands\Inputs\" />
-    <Folder Include="Management\Commands\Results\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
