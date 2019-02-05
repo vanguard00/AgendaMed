@@ -72,5 +72,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Account\Commands\Handlers\" />
+    <Folder Include="Account\Commands\Inputs\" />
+    <Folder Include="Account\Commands\Results\" />
+    <Folder Include="BookService\Commands\Handlers\" />
+    <Folder Include="BookService\Commands\Inputs\" />
+    <Folder Include="BookService\Commands\Results\" />
+    <Folder Include="Management\Commands\Handlers\" />
+    <Folder Include="Management\Commands\Inputs\" />
+    <Folder Include="Management\Commands\Results\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
