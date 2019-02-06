@@ -9,9 +9,14 @@ namespace Agenda.Infra.FakeRepositories
     public class HospitalFakeRepository : IHospitalRepository
     {
         public List<Hospital> hospitals = new List<Hospital>();
-        public HospitalFakeRepository()
+        public HospitalFakeRepository(SpecialtyFakeRepository specialtyFakeRepository = null)
         {
+            specialtyFakeRepository = specialtyFakeRepository ?? new SpecialtyFakeRepository();
+
+            Specialty specialty = specialtyFakeRepository.specialties[0];
             Hospital hospital = new Hospital("São Lucas");
+            hospital.AddSpecialty(specialty);
+
             Hospital hospital2 = new Hospital("Dom Orione");
             hospitals.Add(hospital);
             hospitals.Add(hospital2);

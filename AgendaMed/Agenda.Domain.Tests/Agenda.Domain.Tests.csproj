@@ -53,6 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Commands\UserCommandHandlerTests.cs" />
+    <Compile Include="BookService\Commands\BookCommandHandlerTests.cs" />
+    <Compile Include="Management\Commands\DoctorCommandHandlerTests.cs" />
+    <Compile Include="Management\Commands\HospitalCommandHandlerTests.cs" />
+    <Compile Include="Management\Commands\SpecialtyCommandHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

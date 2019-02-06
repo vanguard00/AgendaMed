@@ -1,5 +1,6 @@
 ﻿using Agenda.Domain.Management.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace Agenda.Domain.Management.Repositories
 {
@@ -9,5 +10,6 @@ namespace Agenda.Domain.Management.Repositories
         void Update(Specialty specialty);
         void Delete(Guid id);
         Specialty GetById(Guid id);
+        List<Specialty> Specialties();
     }
 }

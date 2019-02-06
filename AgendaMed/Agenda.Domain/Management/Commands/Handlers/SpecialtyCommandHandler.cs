@@ -14,11 +14,9 @@ namespace Agenda.Domain.Management.Commands.Handlers
         ICommandHandler<UpdateSpecialtyCommand>,
         ICommandHandler<DeleteSpecialtyCommand>
     {
-        private readonly IDoctorRepository _doctorRepository;
         private readonly ISpecialtyRepository _specialtyRepository;
-        public SpecialtyCommandHandler(IDoctorRepository doctorRepository, ISpecialtyRepository specialtyRepository)
+        public SpecialtyCommandHandler(ISpecialtyRepository specialtyRepository)
         {
-            _doctorRepository = doctorRepository;
             _specialtyRepository = specialtyRepository;
         }
 
@@ -50,6 +48,11 @@ namespace Agenda.Domain.Management.Commands.Handlers
         public Specialty GetById(Guid specialtyId)
         {
             return _specialtyRepository.GetById(specialtyId);
+        }
+
+        public List<Specialty> Specialties()
+        {
+            return _specialtyRepository.Specialties();
         }
     }
 }

@@ -32,6 +32,11 @@ namespace Agenda.Infra.FakeRepositories
             specialties.Add(specialty);
         }
 
+        public List<Specialty> Specialties()
+        {
+            return specialties;
+        }
+
         public void Update(Specialty specialty)
         {
             int index = specialties.IndexOf(specialty);
