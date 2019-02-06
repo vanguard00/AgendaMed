@@ -1,4 +1,4 @@
-﻿using Agenda.Domain.Management.Commands.Inputs.Specialty;
+﻿using Agenda.Domain.Management.Commands.Inputs.SpecialtyInputs;
 using Agenda.Domain.Management.Commands.Results.Doctor;
 using Agenda.Domain.Management.Commands.Results.Specialty;
 using Agenda.Domain.Management.Entities;
@@ -50,11 +50,6 @@ namespace Agenda.Domain.Management.Commands.Handlers
         public Specialty GetById(Guid specialtyId)
         {
             return _specialtyRepository.GetById(specialtyId);
-        }
-
-        public List<Specialty> GetSpecialtiesByHospital(Guid hospitalId)
-        {
-            return _specialtyRepository.GetSpecialtiesByHospital(hospitalId);
         }
     }
 }

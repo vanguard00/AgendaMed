@@ -11,6 +11,7 @@ namespace Agenda.Domain.Management.Repositories
         void UpdateSpecialty(Hospital hospital);
         void Delete(Guid id);
         List<Hospital> Hospitals();
+        List<Specialty> GetSpecialtiesByHospital(Guid id);
         Hospital GetById(Guid id);
     }
 }

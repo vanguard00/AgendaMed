@@ -25,7 +25,7 @@ namespace Agenda.Domain.Management.Commands.Handlers
 
         public ICommandResult Handler(CreateHospitalCommand command)
         {
-            Hospital hospital = new Hospital(command.Name, command.Specialties);
+            Hospital hospital = new Hospital(command.Name);
             if (!hospital.IsValid())
                 return null;
             _hospitalRepository.Save(hospital);
@@ -74,6 +74,11 @@ namespace Agenda.Domain.Management.Commands.Handlers
         public List<Hospital> Hospitals()
         {
             return _hospitalRepository.Hospitals();
+        }
+
+        public List<Specialty> GetSpecialtiesByHospital(Guid hospitalId)
+        {
+            return _hospitalRepository.GetSpecialtiesByHospital(hospitalId);
         }
     }
 }

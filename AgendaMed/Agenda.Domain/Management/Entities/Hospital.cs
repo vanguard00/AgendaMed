@@ -6,10 +6,10 @@ namespace Agenda.Domain.Management.Entities
 {
     public class Hospital : Entity
     {
-        public Hospital(string name, List<Specialty> specialties)
+        public Hospital(string name)
         {
             Name = name;
-            Specialties = specialties;
+            Specialties = new List<Specialty>();
             new ValidationContract<Hospital>(this)
                 .IsRequired(x => x.Name, "O nome do hospital deve ser informado.")
                 .HasMaxLenght(x => x.Name, 100, "O nome do hospital deve ter no máximo 100 caracteres.");
