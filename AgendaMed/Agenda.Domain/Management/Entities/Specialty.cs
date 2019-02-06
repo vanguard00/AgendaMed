@@ -1,4 +1,5 @@
 ﻿using Agenda.SharedKernel.Entities;
+using FluentValidator;
 
 namespace Agenda.Domain.Management.Entities
 {
@@ -7,6 +8,9 @@ namespace Agenda.Domain.Management.Entities
         public Specialty(string name)
         {
             Name = name;
+            new ValidationContract<Specialty>(this)
+                .IsRequired(x => x.Name, "O nome da especialidade deve ser informado.")
+                .HasMaxLenght(x => x.Name, 100, "O nome deve ter no máximo 100 caracteres.");
         }
 
         public string Name { get; private set; }
@@ -14,6 +18,9 @@ namespace Agenda.Domain.Management.Entities
         public void Update(string name)
         {
             Name = name;
+            new ValidationContract<Specialty>(this)
+                .IsRequired(x => x.Name, "O nome da especialidade deve ser informado.")
+                .HasMaxLenght(x => x.Name, 100, "O nome deve ter no máximo 100 caracteres.");
         }
     }
 }

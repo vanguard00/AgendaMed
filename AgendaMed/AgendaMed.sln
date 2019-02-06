@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agenda.Infra", "Agenda.Infr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agenda.Domain.Tests", "Agenda.Domain.Tests\Agenda.Domain.Tests.csproj", "{C4F3146D-EE8C-41FB-84BE-C384BEB75E8B}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Agenda.Database", "Agenda.Database\Agenda.Database.sqlproj", "{3D8B7ACE-1C2F-4C28-988E-D73D8D8EB08E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,12 @@ Global
 		{C4F3146D-EE8C-41FB-84BE-C384BEB75E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4F3146D-EE8C-41FB-84BE-C384BEB75E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4F3146D-EE8C-41FB-84BE-C384BEB75E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D8B7ACE-1C2F-4C28-988E-D73D8D8EB08E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D8B7ACE-1C2F-4C28-988E-D73D8D8EB08E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D8B7ACE-1C2F-4C28-988E-D73D8D8EB08E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3D8B7ACE-1C2F-4C28-988E-D73D8D8EB08E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D8B7ACE-1C2F-4C28-988E-D73D8D8EB08E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D8B7ACE-1C2F-4C28-988E-D73D8D8EB08E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +56,7 @@ Global
 		{320DED7B-F5DA-4393-9EA3-8E94EC563B34} = {DCC6F7A0-3DC4-4564-A410-95A90EE742C1}
 		{14C5B6B5-999A-4611-B807-E07BB4C3A6B2} = {3F5FFCA3-1E45-4E47-A23D-A671372E992F}
 		{C4F3146D-EE8C-41FB-84BE-C384BEB75E8B} = {DF5A7D5A-E512-489F-B603-BBBCF1C575A9}
+		{3D8B7ACE-1C2F-4C28-988E-D73D8D8EB08E} = {3F5FFCA3-1E45-4E47-A23D-A671372E992F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {32C66F20-7AC8-4234-BAC7-47B27480500B}
