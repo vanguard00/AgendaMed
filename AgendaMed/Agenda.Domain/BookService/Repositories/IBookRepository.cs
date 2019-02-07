@@ -8,8 +8,7 @@ namespace Agenda.Domain.BookService.Repositories
     {
         void Save(Book book);
         void Update(Book book);
-        void Cancel(Book book);
-        void Finish(Book book);
+        void UpdateStatus(Book book);
         Book GetById(Guid id);
         List<Book> Books();
         List<Book> GetBooksByDate(DateTime date);

@@ -47,7 +47,9 @@ namespace Agenda.Domain.Management.Commands.Handlers
             Specialty specialty = _specialtyRepository.GetById(command.SpecialtylId);
             Hospital hospital = _hospitalRepository.GetById(command.HospitalId);
             hospital.AddSpecialty(specialty);
-            _hospitalRepository.UpdateSpecialty(hospital);
+            if (!hospital.IsValid())
+                return null;
+            _hospitalRepository.AddSpecialty(hospital, command.SpecialtylId);
             return new StandardHospitalCommandResult(hospital.Id, DateTime.Now);
         }
 
@@ -56,7 +58,9 @@ namespace Agenda.Domain.Management.Commands.Handlers
             Specialty specialty = _specialtyRepository.GetById(command.SpecialtylId);
             Hospital hospital = _hospitalRepository.GetById(command.HospitalId);
             hospital.RemoveSpecialty(specialty);
-            _hospitalRepository.UpdateSpecialty(hospital);
+            if (!hospital.IsValid())
+                return null;
+            _hospitalRepository.RemoveSpecialty(hospital, command.SpecialtylId);
             return new StandardHospitalCommandResult(hospital.Id, DateTime.Now);
         }
 

@@ -42,7 +42,7 @@ namespace Agenda.Infra.FakeRepositories
 
         public List<Book> GetBooksByDate(DateTime date)
         {
-            return books.Where(x => x.BookTime.Date == date.Date).ToList();
+            return books.Where(x => x.BookDate.Date == date.Date).ToList();
         }
 
         public List<Book> GetBooksByDoctor(Guid id)

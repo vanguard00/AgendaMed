@@ -33,7 +33,7 @@ namespace Agenda.Domain.BookService.Commands.Handlers
         {
             User user = _userRepository.GetById(command.UserId);
             Doctor doctor = _doctorRepository.GetById(command.DoctorId);
-            Book book = new Book(user, doctor, command.BookTime);
+            Book book = new Book(user, doctor, command.BookDate);
             AddNotifications(book.Notifications);
             if (!IsValid())
                 return null;
@@ -46,7 +46,7 @@ namespace Agenda.Domain.BookService.Commands.Handlers
             Book book = _bookRepository.GetById(command.BookId);
             if (!(book.User.Id == command.UserId))
                 AddNotification("User", "O usuário não tem permissão para alterar essa reserva.");
-            book.Update(command.BookTime);
+            book.Update(command.BookDate);
             AddNotifications(book.Notifications);
             if (!IsValid())
                 return null;
@@ -63,7 +63,7 @@ namespace Agenda.Domain.BookService.Commands.Handlers
             AddNotifications(book.Notifications);
             if (!IsValid())
                 return null;
-            _bookRepository.Cancel(book);
+            _bookRepository.UpdateStatus(book);
             return new StandardBookCommandResult();
         }
 
@@ -76,7 +76,7 @@ namespace Agenda.Domain.BookService.Commands.Handlers
             AddNotifications(book.Notifications);
             if (!IsValid())
                 return null;
-            _bookRepository.Finish(book);
+            _bookRepository.UpdateStatus(book);
             return new StandardBookCommandResult();
         }
 

@@ -31,20 +31,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="FluentValidator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidator.1.0.5\lib\net461\FluentValidator.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\SqlServer.cs" />
     <Compile Include="FakeRepositories\BookFakeRepository.cs" />
     <Compile Include="FakeRepositories\DoctorFakeRepository.cs" />
     <Compile Include="FakeRepositories\HospitalFakeRepository.cs" />
     <Compile Include="FakeRepositories\SpecialtyFakeRepository.cs" />
     <Compile Include="FakeRepositories\UserFakeRepository.cs" />
+    <Compile Include="Infra\IDB.cs" />
+    <Compile Include="Infra\IDBConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BookRepository.cs" />
+    <Compile Include="Repositories\DoctorRepository.cs" />
+    <Compile Include="Repositories\HospitalRepository.cs" />
+    <Compile Include="Repositories\SpecialtyRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

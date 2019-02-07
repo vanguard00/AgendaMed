@@ -31,7 +31,7 @@ namespace Agenda.Domain.Tests.BookService.Commands
             {
                 DoctorId = doctorRepository.doctors[0].Id,
                 UserId = userRepository.users[0].Id,
-                BookTime = DateTime.Parse("17/06/2019 15:30:00")
+                BookDate = DateTime.Parse("17/06/2019 15:30:00")
             };
             Assert.IsNotNull(_handler.Handler(command));
         }
@@ -43,7 +43,7 @@ namespace Agenda.Domain.Tests.BookService.Commands
             {
                 BookId = bookRepository.books[0].Id,
                 UserId = userRepository.users[0].Id,
-                BookTime = DateTime.Parse("17/06/2019 16:00:00")
+                BookDate = DateTime.Parse("17/06/2019 16:00:00")
             };
             Assert.IsNotNull(_handler.Handler(command));
         }

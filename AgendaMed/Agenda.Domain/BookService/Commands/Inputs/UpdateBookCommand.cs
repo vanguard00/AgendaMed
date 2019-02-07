@@ -7,6 +7,6 @@ namespace Agenda.Domain.BookService.Commands.Inputs
     {
         public Guid UserId { get; set; }
         public Guid BookId { get; set; }
-        public DateTime BookTime { get; set; }
+        public DateTime BookDate { get; set; }
     }
 }
